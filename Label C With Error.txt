@@ -1,0 +1,421 @@
+25
+5
+MONT: Jefferson Co.............
+Milligan Canyon Rd
+45.8757`248N,111.6748`248W
+30MAY-16JUNE2023, 1301m
+M.DeGarmo,T.Kulak, Vane
+2
+MONT: Stillwater Co.
+Shane Creek Ranch
+45.5881`248N,109.250`248W
+18 MAY 2022, 1292m
+O. Bourquin, bee bowl
+6
+MONT: Stillwater Co.
+Fish and Wildlife land
+45.6139`248N,109.3028`248W
+25 MAY 2022, 1219m
+O. Bourquin, bee bowl
+1
+MONT: Wheatland Co.
+1.5 mi E Shawmut, ME-24-1
+46.3333`248N,109.4969`248W
+14 APR 2024, 1156m
+M. Elwood, water bucket
+1
+MONT: Wheatland Co.
+1.5 mi E Shawmut, ME-24-2 
+46.3371`248N,109.4965`248W
+23 APR 2024, 1144m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+1.5 mi E Shawmut, ME-24-3
+46.3330`248N,109.5029`248W
+27 APR 2024, 1169m
+M. Elwood, water bucket
+1
+MONT: Wheatland Co.
+1.5 mi E Shawmut, ME-24-4
+46.3330`248N,109.5028`248W
+29 APR 2024, 1168m
+M. Elwood, water bucket
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-5
+46.3389`248N,109.4869`248W
+04 MAY 2024, 1207m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+1.5 mi E Shawmut, ME-24-6
+46.3341`248N,109.4971`248W
+10 MAY 2024, 1165m
+M. Elwood, Ex. Willow
+1
+MONT: Wheatland Co.
+1.5 mi E Shawmut, ME-24-7
+46.3341`248N,109.4971`248W
+10 MAY 2024, 1165m
+M. Elwood, Ex. Willow
+1
+MONT: Wheatland Co.
+N of Two Dot, ME-24-8
+46.6328`248N,110.1332`248W
+13 MAY 2024, 1683m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Roberts Cr. area, ME-24-9
+46.7236`248N,109.9566`248W
+22 MAY 2024, 1662m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-10
+46.3406`248N,109.4864`248W
+27 MAY 2024, 1216m
+M. Elwood, net
+11
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-11
+46.3406`248N,109.4864`248W
+27 MAY 2024, 1216m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Jellison area, ME-24-12
+46.6707`248N,110.0459`248W
+04 JUNE 2024, 1746m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Jellison area, ME-24-13
+46.6710`248N,110.0470`248W
+04 JUNE 2024, 1714m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Roberts Cr.area, ME-24-14
+46.7347`248N,109.9850`248W
+12 JUNE 2024, 1720m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Roberts Cr.area, ME-24-15
+46.7341`248N,109.9830`248W
+12 JUNE 2024, 1732m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Roberts Cr.area, ME-24-16
+46.7304`248N,109.9780`248W
+12 JUNE 2024, 1647m
+M. Elwood, net
+1
+MONT: Wheatland Co., 1.5
+mi E Shawmut, ME-24-17
+46.3335`248N,109.4964`248W
+22 JUNE 2024, 1165m
+M. Elwood, net
+1
+MONT: Wheatland Co., 1.5
+ mi E Shawmut, ME-24-18
+46.3335`248N,109.4964`248W
+22 JUNE 2024, 1165m
+M. Elwood, net
+1
+MONT: Wheatland Co., 2
+mi E Shawmut, ME-24-19
+46.3413`248N,109.4872`248W
+22 JUNE 2024, 1213m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Roberts Cr.area, ME-24-20
+46.7264`248N,109.9596`248W
+23 JUNE 2024, 1689m
+M. Elwood, net
+1
+MONT: Wheatland Co., 1.5
+mi E Shawmut, ME-24-21
+46.3351`248N,109.4968`248W
+24 JUNE 2024, 1166m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Harlowton, ME-24-22
+46.4354`248N,109.8294`248W
+07 JULY 2024, 1283m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-23
+46.3391`248N,109.4942`248W
+11 JULY 2024, 1174m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-24
+46.340`248N,109.4902`248W
+11 JULY 2024, 1190m
+M. Elwood, net
+1
+MONT: Wheatland Co., 1.5
+mi E Shawmut, ME-24-25
+46.3339`248N,109.4993`248W
+14 JULY 2024, 1164m
+M. Elwood, water bucket
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-26
+46.3401`248N,109.4903`248W
+14 JULY 2024, 1190m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-27
+46.3319`248N,109.4881`248W
+16 JULY 2024, 1187m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-28
+46.3317`248N,109.4885`248W
+16 JULY 2024, 1187m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-29
+46.3391`248N,109.4942`248W
+17 JULY 2024, 1179m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+N of Two Dot, ME-24-30
+46.4235`248N,110.0689`248W
+18 JULY 2024, 1352m
+M. Elwood, net
+1
+MONT: Wheatland Co., 1.5
+mi E Shawmut, ME-24-31
+46.3334`248N,109.4964`248W
+19 JULY 2024, 1165m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Roberts Cr.area, ME-24-32
+46.7331`248N,109.9750`248W
+22 JULY 2024, 1690m
+M. Elwood, net
+1
+MONT: Wheatland Co., 1.5
+mi E Shawmut, ME-24-33
+46.3336`248N,109.4967`248W
+25 JULY 2024, 1165m
+M. Elwood, net
+1
+MONT: Wheatland Co., 1.5
+mi E Shawmut, ME-24-34
+46.3337`248N,109.4992`248W
+31 JULY 2024, 1164m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+2 mi E Shawmut, ME-24-35
+46.3369`248N,109.4883`248W
+05 AUG 2024, 1188m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+N of Two Dot, ME-24-36
+46.6454`248N,110.1459`248W
+14 AUG 2024, 1757m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+N of Two Dot, ME-24-37
+46.6320`248N,110.1327`248W
+14 AUG 2024, 1757m
+M. Elwood, net
+1
+MONT: Wheatland Co.
+Harlowton, ME-24-38
+46.4382`248N,109.8266`248W
+20 AUG 2024, 1286m
+M. Elwood, net
+1
+MONT: Lake Co.
+Ronan, Sloan Buttes Dr.
+47.5422`248N,114.1636`248W
+29 SEPT 2024, 937m
+W. Schlegel, Ex. Dahlia
+1
+MONT: Park Co.
+Livingston
+45.6699`248N,110.5560`248W
+06 AUG 2024, 1372m
+M. Toshack, net
+1
+MONT: Wheatland Co., 1.5
+mi E Shawmut, ME-23-46
+46.3342`248N,109.4973`248W
+12 SEPT 2023, 1167m
+M. Elwood, net
+1
+MONT: Wheatland Co., 1.5
+mi E Shawmut, ME-23-47
+46.3342`248N,109.4972`248W
+16 SEPT 2023, 1165m
+M. Elwood, net
+4
+MONT: Gallatin Co.
+Bronken Park,Natural area
+45.6846`248N,111.1086`248W
+13 APR 2024, 1454m
+C. Fimbel, net
+2
+MONT: Gallatin Co.
+Flanders Crk. Pond
+45.6876`248N,111.1070`248W
+02 APR 2024, 1449m
+C. Fimbel, Ex.Salix
+5
+MONT: Gallatin Co.
+`126 8km S.Hyalite Cnyn Rd
+45.6846`248N,111.1086`248W
+14 APR 2024, 1860m
+C. Fimbel, Ex.Salix
+3
+MONT: Gallatin Co.
+Flanders Crk. Pond
+45.6876`248N,111.1070`248W
+11 APR 2024, 1449m
+C. Fimbel, Ex.Salix
+22
+MONT: Gallatin Co.
+S. end of Pete's Hill
+45.6610`248N,111.0278`248W
+28 MAY 2024, 1526m
+C. Fimbel, net
+3
+MONT: Gallatin Co.
+Flanders Crk. Pond
+45.6876`248N,111.1070`248W
+12 MAY 2024, 1449m
+C. Fimbel, Ex.Rhus
+3
+MONT: Gallatin Co.
+Flanders Crk. Pond
+45.6876`248N,111.1070`248W
+12 MAY 2024, 1449m
+C. Fimbel, Ex.Cornus
+2
+MONT: Jefferson Co., CDT
+Trail, N. Homestake Pass
+45.9238`248N,112.4138`248W
+09 JUNE 2024, 1936m
+C. Fimbel, net
+2
+MONT: Gallatin Co.,N.end
+Langhor Campground
+45.5365`248N,111.0155`248W
+15 MAY 2024, 1869m
+C. Fimbel, Ex. Salix
+5
+MONT: Gallatin Co.
+S. end of Pete's Hill
+45.6610`248N,111.0278`248W
+06 JUNE 2024, 1526m
+C. Fimbel, net
+6
+MONT: Madison Co.
+Gravelly Range Rd.
+45.0122`248N,111.8595`248W
+08 AUG 2024, 2746m
+C. Fimbel, net
+9
+MONT: Gallatin Co.
+N. Cottonwood Trail
+45.9192`248N,111.0622`248W
+20 JUNE 2024, 1790m
+C. Fimbel, net
+3
+MONT: Broadwater Co.
+Sixteen Mile Crk.
+46.1194`248N,111.3796`248W
+13 JUNE 2024, 1391m
+C. Fimbel, net
+9
+MONT: Broadwater Co.
+Skidway Campground
+46.3564`248N,111.0990`248W
+13 JUNE 2024, 1737m
+C. Fimbel,Ex.Phacelia
+13
+MONT: Broadwater Co.
+`126 1 mi SE Toston
+46.1497`248N,111.4196`248W
+13 JUNE 2024, 1206m
+C. Fimbel, net
+13
+MONT: Broadwater Co.
+Skidway Trail Region
+46.3481`248N,111.1071`248W
+13 JUNE 2024, 1908m
+C. Fimbel, net
+3
+MONT: Gallatin Co.
+S. end of Pete's Hill
+45.6610`248N,111.0278`248W
+24 JUNE 2024, 1448m
+C. Fimbel, net
+13
+MONT: Madison Co.
+W. side of Axolotl Lake
+45.2274`248N,111.8718`248W
+22 JUNE 2024, 2240m
+C. Fimbel, net
+6
+MONT: Gallatin Co.
+S. end of Pete's Hill
+45.6610`248N,111.0278`248W
+11 JUNE 2024, 1526m
+C. Fimbel, net
+24
+MONT: Jefferson Co., CDT
+Trail, N. Homestake Pass
+45.9268`248N,112.4266`248W
+09 JUNE 2024, 2023m
+C. Fimbel, net
+13
+MONT: Gallatin Co.
+S. end of Pete's Hill
+45.6610`248N,111.0278`248W
+06 JUNE 2024, 1526m
+C. Fimbel, net
+8
+MONT: Carbon Co.
+Cottonwood Rd.,W. Warren
+45.0500`248N,108.7448`248W
+04 JULY 2024, 1340m, net
+C.Delphia, J.Runyon
+7
+MONT: Carbon Co.
+Cottonwood Rd., 1284m
+45.1021`248N,108.8147`248W
+04 JULY 2024, net
+C.Delphia, J.Runyon
+22
+MONT: Carbon Co.
+Cottonwood Rd.,W. Warren
+45.0602`248N,108.6696`248W
+04 JULY 2024, 1352m, net
+C.Delphia, J.Runyon
+11
+MONT: Carbon Co.
+Cottonwood Rd.,W. Warren
+45.0529`248N,108.7668`248W
+04 JULY 2024, 1316m
+C.Delphia, Ex. Asclepias
