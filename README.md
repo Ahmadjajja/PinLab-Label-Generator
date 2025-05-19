@@ -14,4 +14,3 @@ A modern Python-based replacement for the legacy `PINLAB.exe` — used to proces
 - 📄 PDF output using monospaced font in multi-column layout
 - ✅ Fully open-source, no proprietary dependencies
 
----
