@@ -1,5 +1,3 @@
-# PIN_LAB
-
 # PinLab Modern 🖨️
 
 A modern Python-based replacement for the legacy `PINLAB.exe` — used to process text-based specimen labels and generate print-ready PDFs.
