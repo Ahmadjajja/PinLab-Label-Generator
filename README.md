@@ -4,7 +4,7 @@ A modern Python-based replacement for the legacy `PINLAB.exe` — used to proces
 
 ---
 
-## 🚀 Features
+## Features
 
 - 🖥️ Simple GUI: `Open`, `Edit`, `Process`, `Print`, `Exit`
 - 📂 Reads `.txt` input files with dynamic label repeat logic
