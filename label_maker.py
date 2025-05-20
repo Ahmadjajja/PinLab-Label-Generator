@@ -16,8 +16,6 @@ def parse_label_file(filepath): # this function is perfect
     while i < len(lines):
         if lines[i].isdigit():
             if current_block:
-                if count == -1:
-                    return max_width, label_blocks
                 label_blocks.append({
                     "lines": current_block,
                     "count": count
@@ -25,15 +23,20 @@ def parse_label_file(filepath): # this function is perfect
                 current_block = []
             count = int(lines[i])
         else:
+            if count == -1:
+                return max_width, label_blocks, 1
+            if len(lines[i]) > max_width:
+                return max_width, label_blocks, i + 1
             current_block.append(lines[i])
         i += 1
+
     if current_block:
         label_blocks.append({
             "lines": current_block,
             "count": count
         })
         current_block = []
-    return max_width, label_blocks
+    return max_width, label_blocks, -1
 
 def generate_label_pdf(output_path, max_width, label_blocks):
     font_size = 6.5
@@ -85,9 +88,9 @@ def generate_label_pdf(output_path, max_width, label_blocks):
 
 if __name__ == "__main__":
     filepath = "Part 2 Summer Labels E - Copy.txt"  # Replace with your real input file name
-    max_width, label_blocks = parse_label_file(filepath)
-    if not label_blocks:
-        print("ERROR: width or count label is missing!")
+    max_width, label_blocks, errorLine = parse_label_file(filepath)
+    if errorLine != -1:
+        print("ERROR: error is at line ", errorLine)
     else:
         print("Max label width:", max_width)
         print("Total blocks:", len(label_blocks))
