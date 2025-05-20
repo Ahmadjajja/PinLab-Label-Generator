@@ -5,7 +5,7 @@ Scenery Mountain Trail
 48.4160`248N,115.7173`248
 09 JULY 2024, 2101m
 J.Vega,J.Vargas, net
-4
+400
 MONT: Mineral Co.
 Deer Creek Rd.
 46.8982`248N,114.6682`248
