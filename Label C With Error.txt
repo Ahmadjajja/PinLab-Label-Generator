@@ -1,38 +1,31 @@
 25
-5
-MONT: Jefferson Co....
-Milligan Canyon Rd
-45.8757`248N,111.6748`248
-30MAY-16JUNE2023, 1301m
-M.DeGarmo,T.Kulak, Vane
-2
-MONT: Stillwater Co.
-Shane Creek Ranch
-45.5881`248N,109.250`248W
-18 MAY 2022, 1292m
-O. Bourquin, bee bowl
-6
-MONT: Stillwater Co.....
-Fish and Wildlife land
-45.6139`248N,109.3028`248
-25 MAY 2022, 1219m
-O. Bourquin, bee bowl
 1
-MONT: Wheatland Co.
-1.5 mi E Shawmut, ME-24-1
-46.3333`248N,109.4969`248
-14 APR 2024, 1156m
-M. Elwood, water bucket
-1
-MONT: Wheatland Co.
-1.5 mi E Shawmut, ME-24-2 
-46.3371`248N,109.4965`248
-23 APR 2024, 1144m
-M. Elwood, net
-1
-MONT: Wheatland Co.
-1.5 mi E Shawmut, ME-24-3
-46.3330`248N,109.5029`248
-27 APR 2024, 1169m
-M. Elwood, water bucket
-1
+MONT: Lincoln Co...............
+Rabbit O'Brien Crk Rd.
+48.5392`248N,115.8610`248W
+24 JUNE 2024, 1544m
+J.Vega,J.Vargas, net
+29
+MONT: Lincoln Co.
+Silver Butte Rd.
+48.0247`248N,115.3496`248W
+20 JUNE 2024, 906m
+J.Vega,J.Vargas, net
+44
+MONT: Lincoln Co.
+FS Rd. 7295
+48.6424`248N,115.8829`248W
+21 JUNE 2024, 793m
+J.Vega,J.Vargas, net
+38
+MONT: Lincoln Co.
+FS Rd. 7295
+48.6548`248N,115.8736`248W
+21 JUNE 2024, 842m
+J.Vega,J.Vargas, net
+47
+MONT: Lincoln Co.
+Silver Butte Rd.
+47.9829`248N,115.3912`248W
+20 JUNE 2024, 973m
+J.Vega,J.Vargas, net

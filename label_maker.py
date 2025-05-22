@@ -42,8 +42,8 @@ def parse_label_file(filepath): # this function is perfect
     return max_width, label_blocks, -1
 
 def generate_label_pdf(output_path, max_width, label_blocks):
-    font_size = 2.8
-    line_spacing = font_size + 0.5
+    font_size = 2.9
+    line_spacing = font_size + 0.6
     column_width = max_width * (font_size * 0.6) + 10
 
     page_width, page_height = A4
@@ -61,8 +61,8 @@ def generate_label_pdf(output_path, max_width, label_blocks):
     c = canvas.Canvas(output_path, pagesize=A4)
 
     # Register and set FreeMono-Bold font
-    pdfmetrics.registerFont(TTFont("LiberationMonoBold", "LiberationMono-Bold.ttf"))
-    c.setFont("LiberationMonoBold", font_size + 0.5)
+    pdfmetrics.registerFont(TTFont("LiberationMonoRegular", "LiberationMono-Regular.ttf"))
+    c.setFont("LiberationMonoRegular", font_size + 0.5)
 
     current_x = left_margin
     current_y = page_height - top_margin
@@ -73,7 +73,7 @@ def generate_label_pdf(output_path, max_width, label_blocks):
         for i, line in enumerate(label_lines):
             c.saveState()
             c.translate(x, y - i * line_spacing)
-            c.scale(1.0, 1.4)  # Stretch vertically by 1.3x
+            c.scale(1.0, 1.3)  # Stretch vertically by 1.3x
             c.drawString(0, 0, line)
             c.restoreState()
 
@@ -87,7 +87,7 @@ def generate_label_pdf(output_path, max_width, label_blocks):
 
                 if column >= num_columns:
                     c.showPage()
-                    c.setFont("LiberationMonoBold", font_size + 0.5)
+                    c.setFont("LiberationMonoRegular", font_size + 0.5)
                     column = 0
                     current_x = left_margin
                     current_y = page_height - top_margin
