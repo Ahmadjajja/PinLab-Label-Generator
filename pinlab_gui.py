@@ -16,6 +16,7 @@ import os
 import tempfile
 import win32api
 import win32print
+import winreg  # Add at the top if not already imported
 
 # Helper to support PyInstaller font packaging
 def resource_path(relative_path):
@@ -145,7 +146,7 @@ btn_style = {
 }
 
 btn_open = tk.Button(btn_frame, text="📂 Open File", **btn_style)
-btn_edit = tk.Button(btn_frame, text="📝 Edit", state=tk.DISABLED, **btn_style)
+btn_edit = tk.Button(btn_frame, text="📝 View/Edit", state=tk.DISABLED, **btn_style)
 btn_process = tk.Button(btn_frame, text="⚙️ Process", state=tk.DISABLED, **btn_style)
 btn_generate = tk.Button(btn_frame, text="📄 Generate PDF", state=tk.DISABLED, **btn_style)
 btn_print = tk.Button(btn_frame, text="🖨️ Print", state=tk.DISABLED, **btn_style)
@@ -174,74 +175,166 @@ def show_popup(title, message):
     win = tk.Toplevel(app)
     win.title(title)
     win.configure(bg="white")
-    center_window(win, 420, 180)
-    tk.Label(win, text=message, font=("Segoe UI", 11), bg="white", wraplength=380, justify="left").pack(pady=20)
+    center_window(win, 520, 300)
+    tk.Label(win, text=message, font=("Segoe UI", 11), bg="white", wraplength=450, justify="left").pack(pady=20)
     tk.Button(win, text="OK", font=("Segoe UI", 10, "bold"), command=win.destroy, bg="#0a2036", fg="white", relief=tk.FLAT, padx=10, pady=5).pack()
 
 def show_help():
+    import webbrowser
+
     win = tk.Toplevel(app)
     win.title("Help - How to Use")
     center_window(win, 640, 450)
     win.configure(bg="white")
-    txt = scrolledtext.ScrolledText(win, wrap=tk.WORD, font=("Segoe UI", 10), bg="white", fg="#222222")
+
+    txt = scrolledtext.ScrolledText(win, wrap=tk.WORD, font=("Segoe UI", 10), bg="white", fg="#222222", cursor="arrow")
     txt.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
-    txt.insert(tk.END, """
-📘 HOW TO USE PINLAB LABEL GENERATOR:
+
+    content = """
+📘 HOW TO USE PINLAB LABEL GENERATOR
 
 1. 📂 Open File
-   - Select a `.txt` label input file formatted as:
-     > Line 1: Max width (e.g., 25)
-     > Line 2: Repetition count (e.g., 52)
-     > Next lines: Label block
-     > Then new number → new block, and so on
+   - Click to select a `.txt` file formatted as:
+     - Line 1 → Maximum character width (e.g., 25)
+     - Line 2 → Number of times to repeat the label block (e.g., 30)
+     - Following lines → Label content
+     - A new number → begins a new label block
 
-2. 📝 Edit
-   - Opens in Notepad, edit it
-   - Save and close, it reloads into app
+2. 📝 View/Edit
+   - This opens the selected file in Notepad.
+   - After editing and saving, the file is automatically reloaded in the app.
 
 3. ⚙️ Process
-   - Validates file, checks line length, errors
+   - Validates the content:
+     - Checks for overly long lines
+     - Ensures label blocks are correctly formatted
+   - You'll see an error if there's any formatting issue, or a success message if it's clean.
 
 4. 📄 Generate PDF
-   - Outputs label layout in PDF format
+   - Saves your processed labels in a PDF format.
+   - You’ll be asked where to save the file.
+   - Great for previewing or sharing your labels.
 
-5. ❌ Exit
-   - Close the software
+5. \U0001F5A8 Print
+   - Sends labels directly to your **default connected printer**.
+   - To use this successfully:
+     - Ensure your printer is **connected and set as default**.
+     - Install **Adobe Acrobat Reader** and set it as the **default PDF viewer**.
+   - If something is missing, the app will guide you with an error message.
 
-ℹ️ Tip: Don’t leave blank lines in the input file.
-    """)
+6. ℹ️ About
+   - Shows you the history of the software:
+     - Original version 1.0 built around 20 years ago by Daniel L. Gustafson, Ph.D.
+     - This new version 2.0 redesigned in Python in 2025 by Ahmad Jajja.
+
+7. ❓ Help
+   - Displays this guide any time you need it.
+
+8. ❌ Exit
+   - Closes the app.
+
+💡 Tip: Avoid blank lines in your input file. Keep formatting consistent for best results.
+"""
+
+    txt.insert(tk.END, content)
+    
+    # Add link tags
+    def make_hyperlink(tag_name, text_to_find, url):
+        start = content.find(text_to_find)
+        end = start + len(text_to_find)
+        txt.tag_add(tag_name, f"1.0+{start}c", f"1.0+{end}c")
+        txt.tag_config(tag_name, foreground="blue", underline=True)
+        txt.tag_bind(tag_name, "<Button-1>", lambda e: webbrowser.open_new(url))
+
+        # Simulate hover cursor manually
+        def on_enter(event): txt.config(cursor="hand2")
+        def on_leave(event): txt.config(cursor="arrow")
+        txt.tag_bind(tag_name, "<Enter>", on_enter)
+        txt.tag_bind(tag_name, "<Leave>", on_leave)
+
+    make_hyperlink("ahmad", "Ahmad Jajja", "https://linkedin.com/in/ahmad-jajja")
+
     txt.config(state=tk.DISABLED)
 
 def show_about():
+    import webbrowser
+
     win = tk.Toplevel(app)
     win.title("About PinLab")
     center_window(win, 640, 450)
     win.configure(bg="white")
-    txt = scrolledtext.ScrolledText(win, wrap=tk.WORD, font=("Segoe UI", 10), bg="white", fg="#222222")
+
+    txt = scrolledtext.ScrolledText(win, wrap=tk.WORD, font=("Segoe UI", 10), bg="white", fg="#222222", cursor="arrow")
     txt.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
-    txt.insert(tk.END, """
-🔹 PinLab Software - Version History 🔹
 
-📌 Version 1.0 (2004)
-- Developed by DLG using Fortran + WINTERACTER
-- Outputs: PCL plot files (.plt)
-- Limitations: no PDF, limited characters
+    content = """
+🔹 PinLab Label Generator – Version 2.0
 
-🚀 Version 2.0 (2024)
-- Rewritten by Ahmad Sultan in Python
-- Uses: Tkinter + ReportLab
-- Output: PDF
-- Supports: ASCII/Unicode, modern fonts, dynamic scaling
+📜 Version 1.0 (2004)
+Originally developed by **Daniel L. Gustafson, Ph.D. Montana State University, Bozeman, MT.**, this version was written in **Fortran** using the **WINTERACTER** GUI toolkit. It was designed specifically for generating entomology labels.
 
-🔗 Developer:
-- GitHub: https://github.com/ahmadcodes
-- LinkedIn: https://linkedin.com/in/ahmadcodes
-- Website: https://ahmad.codes
+Limitations of the old version:
+- Only supported specific printer hardware
+- Output was limited to `.plt` files (PCL)
+- No PDF export support
+- Rigid formatting and font limitations
 
-📁 Repo:
-https://github.com/ahmadcodes/pinlab-label-generator
-    """)
+🚀 Version 2.0 (2025)
+To preserve and modernize the original concept, Ahmad Jajja rebuilt the software from scratch with updated technologies for today’s users.
+
+This version:
+
+- Is written in Python using Tkinter for GUI and ReportLab for PDF generation
+- Supports monospaced Unicode fonts for scientific accuracy
+- Allows direct PDF printing and label generation
+- Features a modern, user-friendly interface
+- Works across modern Windows systems without needing complex dependencies
+
+Benefits of Version 2.0:
+
+- \U0001F5A8 Print-ready without old printer constraints
+- 📄 Export to PDF directly
+- 💻 Lightweight, portable .exe for offline use
+- ✍️ Editable and transparent input format
+- ✅ Great for labs, museums, research, and fieldwork printing
+
+👨‍💻 Developer Links:
+- GitHub: Ahmad Jajja
+- LinkedIn: Ahmad Jajja
+- Website: ahmad-jajja.com
+
+📂 Source Code:
+Available on GitHub: PinLab Label Generator Repository
+
+🏆 Acknowledgments
+
+Special thanks to **Daniel L. Gustafson, Ph.D.** for the original PinLab concept and vision that inspired this modern implementation.
+
+Built with \u2764 for the scientific research community
+"""
+    txt.insert(tk.END, content)
+
+    # Helper for hyperlink styling
+    def make_hyperlink(tag_name, text_to_find, url):
+        start = content.find(text_to_find)
+        end = start + len(text_to_find)
+        txt.tag_add(tag_name, f"1.0+{start}c", f"1.0+{end}c")
+        txt.tag_config(tag_name, foreground="blue", underline=True)
+        txt.tag_bind(tag_name, "<Button-1>", lambda e: webbrowser.open_new(url))
+
+        def on_enter(event): txt.config(cursor="hand2")
+        def on_leave(event): txt.config(cursor="arrow")
+        txt.tag_bind(tag_name, "<Enter>", on_enter)
+        txt.tag_bind(tag_name, "<Leave>", on_leave)
+
+    # Create clickable tags
+    make_hyperlink("github", "GitHub: Ahmad Jajja", "https://github.com/Ahmadjajja")
+    make_hyperlink("linkedin", "LinkedIn: Ahmad Jajja", "https://linkedin.com/in/ahmad-jajja")
+    make_hyperlink("website", "Website: ahmad-jajja.com", "https://ahmad-jajja.com")
+    make_hyperlink("repo", "PinLab Label Generator Repository", "https://github.com/Ahmadjajja/PinLab-Label-Generator")
+
     txt.config(state=tk.DISABLED)
+
 
 # ---------- Actions ----------
 def open_file():
@@ -287,9 +380,9 @@ def generate_pdf_file():
         show_popup("Success", f"✅ PDF saved to:\n{output_file}")
 
 
-
 def print_pdf_file():
     try:
+
         with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
             generate_label_pdf(temp_pdf.name, max_width, label_blocks)
 
@@ -297,7 +390,15 @@ def print_pdf_file():
         os.startfile(temp_pdf.name, "print")
 
     except Exception as e:
-        show_popup("Printer Error", f"⚠️ Failed to print.\n\n{str(e)}")
+        show_popup(
+            "Printer Error",
+            "⚠️ Printing Failed.\n\n"
+            "Please follow these steps to fix the issue:\n\n"
+            "1. Make sure your printer is connected and set as the default printer.\n"
+            "2. Ensure that Adobe Acrobat Reader is installed and set as the default app for opening PDF files.\n\n"
+            "Once both are configured correctly, try printing again."
+        )
+
 
 
 def edit_file():
@@ -320,3 +421,8 @@ btn_about.config(command=show_about)
 
 # ---------- Start ----------
 app.mainloop()
+
+
+
+
+# pyinstaller --onefile --add-data "LiberationMono-Regular.ttf;." pinlab_gui.py
