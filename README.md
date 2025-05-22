@@ -6,7 +6,6 @@ It is the upgraded version of the legacy software *PinLab v1.0* written over 20 
 
 This new version **v2.0**, developed by **Ahmad Jajja**, solves those limitations using modern technologies and provides both **PDF generation** and **direct printer output**, while supporting all ASCII and Unicode characters.
 
----
 
 ## 🚀 Features
 
@@ -19,7 +18,6 @@ This new version **v2.0**, developed by **Ahmad Jajja**, solves those limitation
 - 🎨 **Modern GUI interface** - Clean, intuitive design built with Tkinter
 - 🧠 **Full Unicode support** - Monospaced fonts for perfectly aligned output
 
----
 
 ## 📁 Input File Format
 
@@ -46,7 +44,6 @@ J.Vega,J.Vargas, net
 
 ✅ **Note:** Each label block can contain any number of lines, and special characters like degree symbols (°) are fully supported.
 
----
 
 ## 🛠️ Installation
 
@@ -85,7 +82,6 @@ pip install -r requirements.txt
 python pinlab_gui.py
 ```
 
----
 
 ## 🖨️ Printing Setup & Requirements
 
@@ -100,7 +96,6 @@ python pinlab_gui.py
 3. Install **Adobe Acrobat Reader** and set it as the default PDF application
 4. The application uses `os.startfile()` for seamless printing integration
 
----
 
 ## 💻 Usage Guide
 
@@ -119,7 +114,6 @@ The application provides comprehensive validation including:
 - Error reporting with specific line numbers
 - Unicode character compatibility testing
 
----
 
 ## 🧠 Technical Architecture
 
@@ -137,7 +131,6 @@ The application provides comprehensive validation including:
 - Direct printer communication module
 - Error handling and user feedback system
 
----
 
 ## 🧑‍💻 Developer Information
 
@@ -147,7 +140,6 @@ The application provides comprehensive validation including:
 🔗 **LinkedIn:** [linkedin.com/in/ahmad-jajja](https://linkedin.com/in/ahmad-jajja)  
 🐙 **GitHub:** [github.com/Ahmadjajja](https://github.com/Ahmadjajja)
 
----
 
 ## 📜 License & Usage
 
@@ -162,7 +154,6 @@ from the author.
 Licensed for educational, research, and internal laboratory use only.
 ```
 
----
 
 ## 📌 Version History
 
@@ -186,7 +177,6 @@ Licensed for educational, research, and internal laboratory use only.
 - ✅ Comprehensive validation
 - ✅ Cross-platform compatibility
 
----
 
 ## 🤝 Contributing
 
@@ -205,7 +195,6 @@ We welcome contributions from the scientific and development communities!
 - Add unit tests for new functionality
 - Update documentation as needed
 
----
 
 ## 🐛 Issues & Support
 
@@ -219,7 +208,6 @@ We welcome contributions from the scientific and development communities!
 - **File Format Errors:** Check input file structure against the documented format
 - **Unicode Problems:** Ensure your system supports the required character sets
 
----
 
 ## 🔗 Repository Links
 
@@ -231,12 +219,10 @@ We welcome contributions from the scientific and development communities!
 - [📚 Documentation](https://github.com/Ahmadjajja/PinLab-Label-Generator/wiki)
 - [💬 Discussions](https://github.com/Ahmadjajja/PinLab-Label-Generator/discussions)
 
----
 
 ## 🏆 Acknowledgments
 
 Special thanks to **Daniel L. Gustafson, Ph.D.** for the original PinLab concept and vision that inspired this modern implementation.
 
----
 
 *Built with ❤️ for the scientific research community*
