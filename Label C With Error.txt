@@ -1,31 +1,13 @@
 25
 1
-MONT: Lincoln Co...............
+MONT: Lincoln Co......
 Rabbit O'Brien Crk Rd.
-48.5392`248N,115.8610`248W
+48.5392`248N,115.8610`248
 24 JUNE 2024, 1544m
 J.Vega,J.Vargas, net
 29
 MONT: Lincoln Co.
 Silver Butte Rd.
-48.0247`248N,115.3496`248W
+48.0247`248N,115.3496`248
 20 JUNE 2024, 906m
-J.Vega,J.Vargas, net
-44
-MONT: Lincoln Co.
-FS Rd. 7295
-48.6424`248N,115.8829`248W
-21 JUNE 2024, 793m
-J.Vega,J.Vargas, net
-38
-MONT: Lincoln Co.
-FS Rd. 7295
-48.6548`248N,115.8736`248W
-21 JUNE 2024, 842m
-J.Vega,J.Vargas, net
-47
-MONT: Lincoln Co.
-Silver Butte Rd.
-47.9829`248N,115.3912`248W
-20 JUNE 2024, 973m
 J.Vega,J.Vargas, net

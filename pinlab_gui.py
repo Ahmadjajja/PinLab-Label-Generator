@@ -14,6 +14,8 @@ from reportlab.pdfbase.ttfonts import TTFont
 import sys
 import os
 import tempfile
+import win32api
+import win32print
 
 # Helper to support PyInstaller font packaging
 def resource_path(relative_path):
@@ -284,13 +286,19 @@ def generate_pdf_file():
         generate_label_pdf(output_file, max_width, label_blocks)
         show_popup("Success", f"✅ PDF saved to:\n{output_file}")
 
+
+
 def print_pdf_file():
     try:
         with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
             generate_label_pdf(temp_pdf.name, max_width, label_blocks)
-            os.startfile(temp_pdf.name, "print")
-    except Exception:
-        show_popup("Printer Error", "⚠️ No printer found or unable to print.")
+
+        # Open the default PDF viewer's print dialog
+        os.startfile(temp_pdf.name, "print")
+
+    except Exception as e:
+        show_popup("Printer Error", f"⚠️ Failed to print.\n\n{str(e)}")
+
 
 def edit_file():
     if not selected_file: return
