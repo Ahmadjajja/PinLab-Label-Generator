@@ -447,6 +447,7 @@ def find_adobe_executable():
 #         return False
 
 def print_pdf_file():
+    print("adobe_path : ", find_adobe_executable())
     def do_print():
         try:
             printer_name = win32print.GetDefaultPrinter()
@@ -464,6 +465,7 @@ def print_pdf_file():
                 raise Exception(f"Printer '{printer_name}' is not ready (paused, offline, or error state).")
 
             adobe_path = find_adobe_executable()
+            print("adobe_path : ", adobe_path)
             if not adobe_path:
                 raise Exception("Adobe Reader or Acrobat not found in known locations.")
 
