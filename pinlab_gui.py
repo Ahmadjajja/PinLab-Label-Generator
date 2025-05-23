@@ -191,7 +191,7 @@ def show_help():
     txt.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
     content = """
-📘 HOW TO USE PINLAB LABEL GENERATOR
+HOW TO USE PINLAB LABEL GENERATOR
 
 1. 📂 Open File
    - Click to select a `.txt` file formatted as:
@@ -270,7 +270,8 @@ def show_about():
     content = """
 🔹 PinLab Label Generator – Version 2.0
 
-📜 Version 1.0 (2004)
+Version 1.0 (2004)
+
 Originally developed by **Daniel L. Gustafson, Ph.D. Montana State University, Bozeman, MT.**, this version was written in **Fortran** using the **WINTERACTER** GUI toolkit. It was designed specifically for generating entomology labels.
 
 Limitations of the old version:
@@ -279,7 +280,8 @@ Limitations of the old version:
 - No PDF export support
 - Rigid formatting and font limitations
 
-🚀 Version 2.0 (2025)
+Version 2.0 (2025)
+
 To preserve and modernize the original concept, Ahmad Jajja rebuilt the software from scratch with updated technologies for today’s users.
 
 This version:
@@ -292,21 +294,23 @@ This version:
 
 Benefits of Version 2.0:
 
-- \U0001F5A8 Print-ready without old printer constraints
-- 📄 Export to PDF directly
-- 💻 Lightweight, portable .exe for offline use
-- ✍️ Editable and transparent input format
-- ✅ Great for labs, museums, research, and fieldwork printing
+- Print-ready without old printer constraints
+- Export to PDF directly
+- Lightweight, portable .exe for offline use
+- Editable and transparent input format
+- Great for labs, museums, research, and fieldwork printing
 
-👨‍💻 Developer Links:
+Developer Links:
+
 - GitHub: Ahmad Jajja
 - LinkedIn: Ahmad Jajja
 - Website: ahmad-jajja.com
 
-📂 Source Code:
+Source Code:
+
 Available on GitHub: PinLab Label Generator Repository
 
-🏆 Acknowledgments
+Acknowledgments
 
 Special thanks to **Daniel L. Gustafson, Ph.D.** for the original PinLab concept and vision that inspired this modern implementation.
 
@@ -380,24 +384,115 @@ def generate_pdf_file():
         show_popup("Success", f"✅ PDF saved to:\n{output_file}")
 
 
+# def print_pdf_file():
+#     try:
+
+#         with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
+#             generate_label_pdf(temp_pdf.name, max_width, label_blocks)
+
+#         # Open the default PDF viewer's print dialog
+#         os.startfile(temp_pdf.name, "print")
+
+#     except Exception as e:
+#         show_popup(
+#             "Printer Error",
+#             "⚠️ Printing Failed.\n\n"
+#             "Please follow these steps to fix the issue:\n\n"
+#             "1. Make sure your printer is connected and set as the default printer.\n"
+#             "2. Ensure that Adobe Acrobat Reader is installed and set as the default app for opening PDF files.\n\n"
+#             "Once both are configured correctly, try printing again."
+#         )
+
+# ---------------- Second working print function---------------------------
+
+import subprocess
+import tempfile
+import threading
+import win32print
+import os
+
+def find_adobe_executable():
+    possible_paths = [
+        r"C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe",
+        r"C:\Program Files\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe",
+        r"C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe",
+        r"C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\Acrobat.exe",
+        r"C:\Program Files\Adobe\Acrobat Pro\Acrobat\Acrobat.exe",
+        r"C:\Program Files (x86)\Adobe\Acrobat Pro\Acrobat\Acrobat.exe"
+    ]
+    for path in possible_paths:
+        if os.path.isfile(path):
+            return path
+    return None
+
+# def is_default_printer_ready():
+#     try:
+#         printer_name = win32print.GetDefaultPrinter()
+#         hPrinter = win32print.OpenPrinter(printer_name)
+#         info = win32print.GetPrinter(hPrinter, 2)
+#         win32print.ClosePrinter(hPrinter)
+
+#         status = info["Status"]
+
+#         # Check for common "not ready" states
+#         PRINTER_STATUS_OFFLINE = 0x00000080
+#         PRINTER_STATUS_PAUSED = 0x00000001
+#         PRINTER_STATUS_ERROR = 0x00000002
+
+#         if status & (PRINTER_STATUS_OFFLINE | PRINTER_STATUS_PAUSED | PRINTER_STATUS_ERROR):
+#             return False
+
+#         return True
+#     except Exception:
+#         return False
+
 def print_pdf_file():
-    try:
+    def do_print():
+        try:
+            printer_name = win32print.GetDefaultPrinter()
+            hPrinter = win32print.OpenPrinter(printer_name)
+            info = win32print.GetPrinter(hPrinter, 2)
+            win32print.ClosePrinter(hPrinter)
 
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
-            generate_label_pdf(temp_pdf.name, max_width, label_blocks)
+            # Check status
+            status = info["Status"]
+            PRINTER_STATUS_OFFLINE = 0x00000080
+            PRINTER_STATUS_ERROR = 0x00000002
+            PRINTER_STATUS_PAUSED = 0x00000001
 
-        # Open the default PDF viewer's print dialog
-        os.startfile(temp_pdf.name, "print")
+            if status & (PRINTER_STATUS_OFFLINE | PRINTER_STATUS_ERROR | PRINTER_STATUS_PAUSED):
+                raise Exception(f"Printer '{printer_name}' is not ready (paused, offline, or error state).")
 
-    except Exception as e:
-        show_popup(
-            "Printer Error",
-            "⚠️ Printing Failed.\n\n"
-            "Please follow these steps to fix the issue:\n\n"
-            "1. Make sure your printer is connected and set as the default printer.\n"
-            "2. Ensure that Adobe Acrobat Reader is installed and set as the default app for opening PDF files.\n\n"
-            "Once both are configured correctly, try printing again."
-        )
+            adobe_path = find_adobe_executable()
+            if not adobe_path:
+                raise Exception("Adobe Reader or Acrobat not found in known locations.")
+
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
+                generate_label_pdf(temp_pdf.name, max_width, label_blocks)
+
+            subprocess.run([adobe_path, "/p", "/h", temp_pdf.name], check=False)
+
+            show_popup(
+                "Sent to Printer",
+                f"Print command sent to: {printer_name}\nPlease check the printer output or print queue manually."
+            )
+
+        except Exception as e:
+            show_popup(
+                "Printer Error",
+                f"""Printing Failed!
+
+Steps to fix:
+1. Select the correct printer as your default printer.
+2. If the printer is online, the document will print immediately.
+3. If the printer is offline, the document will be queued. It will automatically print once the printer comes online.
+4. Ensure Adobe Acrobat/Reader is installed and set as the default PDF app.
+
+(Error: {str(e)})
+"""
+            )
+
+    threading.Thread(target=do_print, daemon=True).start()
 
 
 
