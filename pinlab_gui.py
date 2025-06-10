@@ -122,6 +122,12 @@ def generate_label_pdf(output_path, max_width, label_blocks):
 app = tk.Tk()
 app.title("PinLab Label Generator")
 app.configure(bg="#f4f6f9")
+
+# Set the window icon
+icon_path = resource_path("app_icon.ico")
+if os.path.exists(icon_path):
+    app.iconbitmap(icon_path)
+
 center_window(app, 800, 550)
 
 header = tk.Label(app, text="PinLab Label Generator", font=("Segoe UI", 16, "bold"), bg="#0a2036", fg="white", pady=10)
@@ -212,7 +218,7 @@ HOW TO USE PINLAB LABEL GENERATOR
 
 4. 📄 Generate PDF
    - Saves your processed labels in a PDF format.
-   - You’ll be asked where to save the file.
+   - You'll be asked where to save the file.
    - Great for previewing or sharing your labels.
 
 5. \U0001F5A8 Print
@@ -282,7 +288,7 @@ Limitations of the old version:
 
 Version 2.0 (2025)
 
-To preserve and modernize the original concept, Ahmad Jajja rebuilt the software from scratch with updated technologies for today’s users.
+To preserve and modernize the original concept, Ahmad Jajja rebuilt the software from scratch with updated technologies for today's users.
 
 This version:
 
