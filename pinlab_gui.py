@@ -123,10 +123,21 @@ app = tk.Tk()
 app.title("PinLab Label Generator")
 app.configure(bg="#f4f6f9")
 
-# Set the window icon
-icon_path = resource_path("app_icon.ico")
-if os.path.exists(icon_path):
-    app.iconbitmap(icon_path)
+# Set the window and taskbar icons
+try:
+    # Try the direct path first
+    if os.path.exists("app_icon.ico"):
+        app.iconbitmap("app_icon.ico")
+    else:
+        # Try the resource path
+        icon_path = resource_path("app_icon.ico")
+        if os.path.exists(icon_path):
+            app.iconbitmap(icon_path)
+            # Create a PhotoImage for the taskbar icon
+            icon_photo = tk.PhotoImage(file=icon_path.replace('.ico', '.png'))
+            app.iconphoto(True, icon_photo)
+except Exception as e:
+    print(f"Icon loading error: {e}")
 
 center_window(app, 800, 550)
 

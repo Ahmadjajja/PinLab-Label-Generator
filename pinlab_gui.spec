@@ -5,7 +5,11 @@ a = Analysis(
     ['pinlab_gui.py'],
     pathex=[],
     binaries=[],
-    datas=[('LiberationMono-Regular.ttf', '.'), ('app_icon.ico', '.')],
+    datas=[
+        ('LiberationMono-Regular.ttf', '.'),
+        ('app_icon.ico', '.'),
+        ('app_icon.png', '.')
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
