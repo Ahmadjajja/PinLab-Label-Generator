@@ -1,7 +1,7 @@
 25
 52
-MONT: Lincoln Co.....
-Scenery Mountain Trail
+MONT: Lincoln Co
+Scenery Mountain Trai
 48.4160`248N°,115.7173°
 09 JULY 2024, 2101m
 J.Vega,J.Vargas, net

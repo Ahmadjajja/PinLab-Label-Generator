@@ -80,9 +80,6 @@ def generate_label_pdf(output_path, max_width, label_blocks):
     bottom_margin = 11.3 * mm
     left_margin = 0 * mm
     usable_height = page_height - top_margin - bottom_margin
-    lines_per_label = max(len(block["lines"]) for block in label_blocks)
-    height_per_label = lines_per_label * line_spacing + 2.5
-    labels_per_column = int(usable_height // height_per_label)
     num_columns = int((page_width - left_margin) // column_width)
 
     c = canvas.Canvas(output_path, pagesize=A4)
@@ -91,9 +88,19 @@ def generate_label_pdf(output_path, max_width, label_blocks):
     current_x = left_margin
     current_y = page_height - top_margin
     column = 0
-    label_counter = 0
+    labels_in_current_column = 0
+
+    def calculate_label_height(label_lines):
+        """Calculate the actual height needed for a specific label"""
+        if not label_lines:
+            return 0
+        # Calculate height based on actual number of lines
+        actual_height = len(label_lines) * line_spacing
+        # Add minimal spacing between labels (reduced from 2.5 to 0.8)
+        return actual_height + 1.1
 
     def draw_label(label_lines, x, y):
+        """Draw a label at the specified position"""
         for i, line in enumerate(label_lines):
             c.saveState()
             c.translate(x, y - i * line_spacing)
@@ -101,21 +108,54 @@ def generate_label_pdf(output_path, max_width, label_blocks):
             c.drawString(0, 0, line)
             c.restoreState()
 
+    # First pass: calculate total height needed for each column
+    column_heights = [0] * num_columns
+    current_column = 0
+    
     for block in label_blocks:
         for _ in range(block["count"]):
-            if label_counter >= labels_per_column:
-                column += 1
-                current_x = left_margin + column * column_width
+            label_height = calculate_label_height(block["lines"])
+            
+            # Check if this label would fit in current column
+            if column_heights[current_column] + label_height <= usable_height:
+                column_heights[current_column] += label_height
+            else:
+                # Move to next column
+                current_column += 1
+                if current_column >= num_columns:
+                    # Start new page
+                    current_column = 0
+                    column_heights = [0] * num_columns
+                column_heights[current_column] += label_height
+
+    # Second pass: actually draw the labels
+    current_column = 0
+    current_y = page_height - top_margin
+    
+    for block in label_blocks:
+        for _ in range(block["count"]):
+            label_height = calculate_label_height(block["lines"])
+            
+            # Check if we need to move to next column
+            if current_y - label_height < bottom_margin:
+                current_column += 1
+                current_x = left_margin + current_column * column_width
                 current_y = page_height - top_margin
-                label_counter = 0
-                if column >= num_columns:
+                
+                # Check if we need a new page
+                if current_column >= num_columns:
                     c.showPage()
                     c.setFont("LiberationMonoRegular", font_size + 0.5)
-                    column = 0
+                    current_column = 0
                     current_x = left_margin
                     current_y = page_height - top_margin
-            draw_label(block["lines"], current_x, current_y - label_counter * height_per_label)
-            label_counter += 1
+            
+            # Draw the label
+            draw_label(block["lines"], current_x, current_y)
+            
+            # Move to next position (reduced spacing)
+            current_y -= label_height
+    
     c.save()
 
 # ---------- GUI ----------
